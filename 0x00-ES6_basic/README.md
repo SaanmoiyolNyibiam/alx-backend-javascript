@@ -1,1 +1,0 @@
-This is the directory for my alx project on ES6 basics
