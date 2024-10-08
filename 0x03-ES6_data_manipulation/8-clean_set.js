@@ -4,13 +4,15 @@ export default function cleanSet(inputSet, startString) {
   if (startString === '' || startString.length === 0 || startString === undefined) return '';
 
   // check for startString in values of inputSet and compute a string of matching values
-  let outputString = '';
-  for (const value of inputSet) {
-    if (value.startsWith(startString)) {
-      outputString += `${value.replace(startString, '')}-`;
-    }
-  }
+  // for (const value of inputSet) {
+  //   if (value.startsWith(startString)) {
+  //     outputString += `${value.replace(startString, '')}-`;
+  //   }
+  // }
+  // // return the string of matching value
+  // return outputString.slice(0, -1);
 
-  // return the string of matching value
-  return outputString.slice(0, -1);
+  const outputString = [...inputSet].filter((setValue) => setValue.startsWith(startString)).map((eachString) => eachString.replace(startString, '')).join('-');
+
+  return outputString;
 }
