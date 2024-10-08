@@ -7,6 +7,5 @@ export default function hasValuesFromArray(inputSet, inputArray) {
   const bool = inputArray.every((arrayValue) => inputSet.has(arrayValue));
 
   // return boolean
-  console.log(bool);
-  // return bool;
+  return bool;
 }
