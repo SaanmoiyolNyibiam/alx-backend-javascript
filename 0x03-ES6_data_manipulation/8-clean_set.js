@@ -12,7 +12,11 @@ export default function cleanSet(inputSet, startString) {
   // // return the string of matching value
   // return outputString.slice(0, -1);
 
-  const outputString = [...inputSet].filter((setValue) => setValue.startsWith(startString)).map((eachString) => eachString.replace(startString, '')).join('-');
+  const outputString = [...inputSet]
+    .filter((setValue) => (typeof setValue === 'string' && setValue.startsWith(startString) && setValue !== undefined))
+    .map((eachString) => eachString
+      .replace(startString, ''))
+    .join('-');
 
   return outputString;
 }
