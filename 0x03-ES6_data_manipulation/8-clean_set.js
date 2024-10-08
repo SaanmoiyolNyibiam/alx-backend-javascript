@@ -1,7 +1,7 @@
 export default function cleanSet(inputSet, startString) {
   // validate input
   if (!(inputSet instanceof Set) || typeof startString !== 'string') throw new TypeError('Invalid input type');
-  if (startString === '') return '';
+  if (startString === '' || startString.length === 0 || startString === undefined) return '';
 
   // check for startString in values of inputSet and compute a string of matching values
   let outputString = '';
