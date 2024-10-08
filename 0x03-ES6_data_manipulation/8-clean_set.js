@@ -14,8 +14,7 @@ export default function cleanSet(inputSet, startString) {
 
   const outputString = [...inputSet]
     .filter((setValue) => (typeof setValue === 'string' && setValue.startsWith(startString) && setValue !== undefined))
-    .map((eachString) => eachString
-      .replace(startString, ''))
+    .map((eachString) => (eachString !== undefined ? eachString.slice(startString.length) : ''))
     .join('-');
 
   return outputString;
