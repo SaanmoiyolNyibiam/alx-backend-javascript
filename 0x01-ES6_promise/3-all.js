@@ -1,19 +1,15 @@
 import { uploadPhoto, createUser } from './utils';
 
-export default function handleProfileSignup() {
+export default async function handleProfileSignup() {
   // handle first promist
-  const promise1 = uploadPhoto();
-  promise1.then((result) => {
-    process.stdout.write(result.body);
-  }).catch(() => {
+  const promise1 = await uploadPhoto().catch(() => {
     console.log('Signup system offline');
   });
+  process.stdout.write(promise1.body);
 
   // handle second promise
-  const promise2 = createUser();
-  promise2.then((result) => {
-    console.log(` ${result.firstName} ${result.lastName}`);
-  }).catch(() => {
+  const promise2 = await createUser().catch(() => {
     console.log('Signup system offline');
   });
+  console.log(` ${promise2.firstName} ${promise2.lastName}`);
 }
