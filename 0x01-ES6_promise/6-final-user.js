@@ -7,12 +7,12 @@ export default function handleProfileSignup(firstName, lastName, filename) {
   const newUser = signUpUser(firstName, lastName);
   const newPhoto = uploadPhoto(filename);
   return Promise.allSettled([newUser, newPhoto]).then((res) => {
-    const result = {};
+    const result = [];
     res.forEach((idv) => {
       if (idv.status === 'fulfilled') {
-        result[idv.status] = idv.value;
+        result.push({ status: idv.status, value: idv.value });
       } else {
-        result[idv.status] = idv.reason;
+        result.push({ status: idv.status, value: idv.reason });
       }
     });
     return result;
