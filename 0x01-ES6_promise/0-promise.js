@@ -1,4 +1,4 @@
-// defines function that returns a promise
+// defines a function that returns a promise
 export default function getResponseFromAPI() {
   const promise = new Promise((resolve, reject) => {
     const Success = true;
