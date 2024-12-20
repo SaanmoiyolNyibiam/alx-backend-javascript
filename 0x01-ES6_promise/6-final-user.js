@@ -13,7 +13,7 @@ export default function handleProfileSignup(firstName, lastName, filename) {
       if (idv.status === 'fulfilled') {
         result.push({ status: idv.status, value: idv.value });
       } else {
-        result.push({ status: idv.status, value: idv.reason });
+        result.push({ status: idv.status, value: `${idv.reason}` });
       }
     });
     return result;
