@@ -1,5 +1,5 @@
 // this is a module that defines a loadBalancer function
 
 export default function loadBalancer(chinaDownload, USDownload) {
-  return Promise.any([chinaDownload, USDownload]).then((result) => result);
+  return Promise.race([chinaDownload, USDownload]).then((result) => result);
 }
