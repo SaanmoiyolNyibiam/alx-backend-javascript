@@ -2,7 +2,7 @@
 
 export default class Building {
   constructor(sqftInput) {
-    if (this.evacuationWarningMessage === Building.prototype.evacuationWarningMessage) {
+    if ((this.constructor !== Building) && (this.evacuationWarningMessage === Building.prototype.evacuationWarningMessage)) {
       throw new Error('Class extending Building must override evacuationWarningMessage');
     }
     this.sqft = sqftInput;
@@ -21,5 +21,7 @@ export default class Building {
 
   // an abstract method
   evacuationWarningMessage() {
+    this._message = 'This method must always be overidden'
+    return this._message;
   }
 }
