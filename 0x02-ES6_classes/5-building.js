@@ -21,7 +21,7 @@ export default class Building {
 
   // an abstract method
   evacuationWarningMessage() {
-    this._message = 'This method must always be overidden'
+    this._message = 'This method must always be overidden';
     return this._message;
   }
 }
