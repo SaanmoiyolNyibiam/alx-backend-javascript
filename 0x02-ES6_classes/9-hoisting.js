@@ -13,7 +13,7 @@ export class HolbertonClass {
   }
 }
 
-export class StudentHolberton  {
+export class StudentHolberton {
   constructor(firstName, lastName, holbertonClass) {
     this._firstName = firstName;
     this._lastName = lastName;
