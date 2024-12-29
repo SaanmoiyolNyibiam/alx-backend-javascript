@@ -15,6 +15,6 @@ if (process.stdin.isTTY) {
   });
   // handle closing of the program
   process.on('exit', () => {
-    console.log('This important software is now closing');
+    process.stdout.write('This important software is now closing\n')
   });
 }
