@@ -1,17 +1,13 @@
-// bypass eslint rules
-/* eslint-disable */
+// write string to welcome user
+process.stdout.write('Welcome to ALX, what is your name?\n');
 
-// import modules
-var readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout
+// write the users name to stdout
+process.stdin.on('data', (data) => {
+  process.stdout.write(`Your name is: ${data}`);
+  process.exit();
 });
 
-// use the question method from the readline module to manipulate stdin
-readline.question(`Welcome to ALX, what is your name? ${'\n'}`, name => {
-    console.log(`Your name is: ${name}`)
-    readline.close();
-    process.on('exit', () => {
-        console.log('This important software is now closing')
-    });
-})
+// handle closing of the program
+process.on('exit', () => {
+  console.log('This important software is now closing');
+});
