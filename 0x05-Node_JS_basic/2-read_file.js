@@ -13,13 +13,17 @@ CSV file can contain empty lines (at the end) - and they are not a valid student
 
 function printList(inputList) {
   // prints a lisst in a specified format
+  let formatted = '';
+
   for (let idx = 0; idx < inputList.length; idx += 1) {
     if (idx === inputList.length - 1) {
-      process.stdout.write(`${inputList[idx]}\n`);
+      formatted += `${inputList[idx]}\n`;
     } else {
-      process.stdout.write(`${inputList[idx]}, `);
+      formatted += `${inputList[idx]}, `;
     }
   }
+
+  return formatted;
 }
 
 module.exports = function countStudents(filePath) {
@@ -45,10 +49,10 @@ module.exports = function countStudents(filePath) {
     }
 
     console.log(`Number of students: ${records.length}`);
-    process.stdout.write(`Number of students in ${fieldList.CSList.course}: ${fieldList.CSList.CScount}. List: `);
-    printList(fieldList.CSList.fnames);
-    process.stdout.write(`Number of students in ${fieldList.SWEList.course}: ${fieldList.SWEList.SWEcount}. List: `);
-    printList(fieldList.SWEList.fnames);
+    const List1 = printList(fieldList.CSList.fnames);
+    const List2 = printList(fieldList.SWEList.fnames);
+    process.stdout.write(`Number of students in ${fieldList.CSList.course}: ${fieldList.CSList.CScount}. List: ${List1}`);
+    process.stdout.write(`Number of students in ${fieldList.SWEList.course}: ${fieldList.SWEList.SWEcount}. List: ${List2} `);
   } catch (error) {
     throw new Error('Cannot load the database');
   }
