@@ -40,7 +40,7 @@ async function countStudents(filePath) {
     }
     return output.trim();
   } catch (error) {
-    throw new Error('This is the list of our students Cannot load the database');
+    throw new Error('Cannot load the database');
   }
 }
 
@@ -62,7 +62,7 @@ app.get('/students', async (req, res) => {
   } catch (error) {
     res.status(500)
       .set('Content-Type', 'text/plain')
-      .send('Cannot load the database');
+      .send('This is the list of our students\nCannot load the database');
   }
 });
 
