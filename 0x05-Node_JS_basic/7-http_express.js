@@ -40,7 +40,7 @@ async function countStudents(filePath) {
     }
     return output.trim();
   } catch (error) {
-    throw new Error('Cannot load the database');
+    throw new Error('This is the list of our students Cannot load the database');
   }
 }
 
